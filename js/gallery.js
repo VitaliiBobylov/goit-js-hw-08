@@ -79,12 +79,8 @@ return arr.map(item => `
       src="${item.preview}"
       data-source="${item.original}"
       alt="${item.description}"
-      widht="510"
-  
     />
   </a>
 </li>
-
-
 `).join("");
 }
