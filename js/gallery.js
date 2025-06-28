@@ -69,6 +69,10 @@ const images = [
 const container = document.querySelector(".gallery");
 
 container.insertAdjacentHTML("beforeend", createMarkup(images));
+container.addEventListener("click", onImageClick);
+
+
+
 
 function createMarkup(arr){
 return arr.map(item => `
@@ -84,3 +88,20 @@ return arr.map(item => `
 </li>
 `).join("");
 }
+
+
+
+
+function onImageClick(event) {
+  event.preventDefault();
+  const target = event.target;
+  if (target.nodeName !== "IMG") return;
+  const largeImageURL = target.dataset.source;
+
+  const instance = basicLightbox.create(`
+    <img src="${largeImageURL}"/>`);
+
+  instance.show();
+
+
+};
